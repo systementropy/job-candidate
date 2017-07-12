@@ -1,0 +1,46 @@
+<style type="text/css">
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+form{
+    
+    height: 20vh;
+    text-align: center;
+}
+form input{margin: auto;}
+</style>
+<div class="container" ng-controller="candidateloginCtrl as up">
+    <div><button ng-click="back()" class="btn" style="width:20%;">Home</button></div>
+    <div class="jumbotron text-center">
+        <fieldset>
+            <legend style="font-size: 30px;">Upload Resume</legend>
+                <form  name="up.upload_form" style="font-size: 50px;">
+                            <input 
+                                type="file" 
+                                ngf-select 
+                                ng-model="up.file" 
+                                name="file" 
+                                ngf-pattern="'.pdf'"
+                                accept=".pdf" 
+                                ngf-max-size="20MB" 
+                                class="btn" 
+                                />
+                            <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+                            <i ng-show="up.upload_form.file.$error.maxSize">File too large 
+                            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+                          
+                            
+                </form>
+                <button type="submit" ng-click="up.submit()" class="btn">Submit</button>
+                <a href="#!Check"><button class="btn">Check Candidates</button></a>
+                <p class="text-info">{{up.progress}}</p>
+                
+        </fieldset>
+    </div>       
+
+</div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.candidatecontainer{
+		width:45vw;
+		height:100px;
+		border:1px solid black;
+		background-color: #4CAF50;
+		float: left;
+		display: inline-block;
+		text-align: center;
+		margin: 10px;
+		text-decoration: none;
+		color:white;
+	}
+	.Jobscontainer{
+		width:45vw;
+		height:100px;
+		border:1px solid black;
+		background-color: #4CAF50;
+		float: right;
+		display: inline-block;
+		text-align: center;
+		margin:10px;
+		text-decoration: none;
+		color:white;
+
+	}
+	a.btn.btn-default {
+	    border: none;
+	}
+	.row.panel.panel-default {
+	    border: none;
+	    background: #FFF;
+	    box-shadow: 0 0 0;
+	    border-bottom: 1px solid rgba(0,0,0,0.3);
+	    border-radius: 0;
+	}
+	.row.panel.panel-default a{
+		border-radius: 0;
+	}
+</style>
+<body>
+
+
+
+<div ng-controller="postjobCtrl" class="container">
+	<div class="row panel panel-default">
+		<a href="" class="btn btn-primary">
+			Post a job
+		</a>
+		<a href="#!Candidate" class="btn btn-default">
+			Candidate
+		</a>
+		<a href="#!Jobs" class="btn btn-default">
+			Jobs
+		</a>
+		
+	</div>
+	<fieldset>
+	
+	<form method="POST" name="post">
+	<div class="form-group">
+		<label>Enter Company Name:</label>
+			<input class="form-control" type="text" name="company" ng-model="job.company" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label>Enter Job Profile:</label>
+			<input class="form-control" type="text" name="profile" ng-model="job.profile" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label>Enter Package:</label>
+			<input class="form-control" type="text" name="package" ng-model="job.package" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label>Enter Desired Skills:</label>
+			<input class="form-control" type="text" name="skills" ng-model="job.skills" ng-required="true"/>
+	</div>
+	<input class="btn btn-lg btn-success" type="submit" name="submit" value="POST" ng-click="post.$valid && addjob()">
+	</form>
+	</fieldset>
+</div>
+</body>
+</html>

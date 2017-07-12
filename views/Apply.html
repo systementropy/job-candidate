@@ -1,0 +1,39 @@
+<style type="text/css">
+	button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+legend{
+	font-size: 30px;
+}
+</style>
+<div ng-controller="applyCtrl" class="container">
+	<button ng-click="back()" class="btn">Home</button>
+	<fieldset>
+	<legend>APPLY FOR JOB</legend>
+	<form method="POST" name="post">
+	<div class="form-group">
+		<label for="">Enter Name:</label>
+		<input class="form-control" type="text" name="company" ng-model="candidate.name" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label for="">Enter Experience:</label>
+		<input class="form-control" type="text" name="profile" ng-model="candidate.experience" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label for="">Enter Expected CTC:</label>
+		<input class="form-control" type="text" name="package" ng-model="candidate.expected" ng-required="true"/>
+	</div>
+	<div class="form-group">
+		<label for="">Enter Current CTC:</label>
+		<input class="form-control" type="text" name="skills" ng-model="candidate.current" ng-required="true"/>
+	</div>
+	<input type="submit" name="submit" value="POST" ng-click="post.$valid && applyjob() " class="btn">
+	</form>
+	</fieldset>
+</div>

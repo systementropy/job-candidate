@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+	}
+	td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+	}
+	th{
+		font-size: 20px;
+		margin: 20px;
+		width:20vw;
+		margin-top:20px;
+
+	}
+	td{
+		text-align: center;
+	}
+	.border{
+		border:1px solid black;
+	}
+	legend{
+		font-size: 30px;
+	}
+	tr:nth-child(even) {
+    background-color: #FAFAF6;
+	}
+	a{
+		text-decoration: none;
+
+	}
+	button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+}
+</style>
+<body>
+<div class="container" ng-controller="checkCtrl">
+<button ng-click="back()" class="btn" style="width:20%;">Home</button>
+<br>
+<br>
+<fieldset>
+<legend>VIEW ALL JOBS</legend>
+
+	
+	<table>
+		<tr class="border" class="nav nav-pills nav-justified">
+			<th>Name</th>
+			<th>Experience</th>
+			<th>Expected Salary</th>
+			<th>Current Salary</th>
+			<th></th>
+		</tr>
+
+		<tr ng-repeat="eachItem in candidate" class="border" class="nav nav-pills nav-justified">
+			<td style="font-size: 20px;" >{{eachItem.name}}</td>
+			<td style="font-size: 20px;" >{{eachItem.experience}}</td>
+			<td style="font-size: 20px;" >{{eachItem.expected}}</td>
+			<td style="font-size: 20px;" >{{eachItem.current}}</td>
+			<td><button ng-click="alertcandidate()" class="btn btn-sm">Alert Candidate</button></td>
+		</tr>
+	</table>
+</div>
+</fieldset>
+</body>
+</html>
