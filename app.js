@@ -13,7 +13,7 @@ var methodOverride=require('method-override');
 var app = express();
 app.use(express.static('../job-candidate'));
 app.use(cors());
-app.set('port',process.env.PORT||5000);
+app.set('port',process.env.PORT||3001);
 app.set('views',__dirname+'views');
 app.set('view engine','jade');
 app.use(express.static(path.join(__dirname,'public')));
@@ -50,9 +50,9 @@ app.post('/upload', function(req, res) {
 
 
 
-app.listen(5000,function(err,data){
+app.listen(3001,function(err,data){
 	if(err) throw err;
 	else{
-		console.log("server running on 5000");
+		console.log("server running on 3001");
 	}
 });

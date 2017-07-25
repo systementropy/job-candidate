@@ -30,13 +30,13 @@ app.config(function($routeProvider) {
         controller:"jobsloginCtrl"
     })
     .when("/CandidateLogin",{
-        resolve:{
-            "check":function($location,$rootScope){
-                if(!$rootScope.loggedcandidate){
-                    $location.path('/Candidate');
-                }
-            }
-        },
+        // resolve:{
+        //     "check":function($location,$rootScope){
+        //         if(!$rootScope.loggedcandidate){
+        //             $location.path('/Candidate');
+        //         }
+        //     }
+        // },
         templateUrl : "views/CandidateLogin.html",
         controller:"candidateloginCtrl"
     })
@@ -144,7 +144,7 @@ app.controller('candidateloginCtrl',['$scope','$window','Upload',function($scope
     }
       vm.upload = function (file) {
         Upload.upload({
-            url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
+            url: 'http://localhost:3001/upload', //webAPI exposed to upload the file
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
@@ -155,7 +155,7 @@ app.controller('candidateloginCtrl',['$scope','$window','Upload',function($scope
         }, function (resp) { //catch error
             console.log('Error status: ' + resp.status);
             $window.alert('Error status: ' + resp.status);
-        }, function (evt) { 
+        }, function (evt) {
             console.log(evt);
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
@@ -165,7 +165,7 @@ app.controller('candidateloginCtrl',['$scope','$window','Upload',function($scope
 }]);
 app.controller('applyCtrl',['$scope','$window','$http','$location',function($scope,$window,$http,$location){
         $scope.back=function(){
-          $window.location = "#/"  
+          $window.location = "#/"
         }
          $scope.post=undefined;
         $scope.applyjob=function(){
